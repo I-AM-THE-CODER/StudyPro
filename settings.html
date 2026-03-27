@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — Exam & Study Tracker</title>
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Exam & Study Tracker</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="study-tools.html">Study Tools</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+    <main>
+        <p class="label">Preferences</p>
+        <h1>Settings</h1>
+        <section id="theme-settings">
+            <h2>Theme</h2>
+            <div class="card">
+                <label for="dark-mode-toggle" style="cursor:pointer; display:flex; align-items:center; gap:12px;">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span>Enable Dark Mode</span>
+                </label>
+            </div>
+        </section>
+        <section id="other-settings">
+            <h2>Other Preferences</h2>
+            <div class="card">
+                <p style="color:var(--text-muted);">Additional settings coming soon.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Exam & Study Tracker</p>
+    </footer>
+    <script src="js/app.js"></script>
+    <script src="js/dark-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* === Monochrome Editorial Responsive === */
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .navbar,
+    nav {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav a {
+        padding: var(--space-xs) var(--space-sm);
+        border-bottom: 1px solid var(--dark-gray);
+    }
+
+    .page-nav {
+        flex-direction: column;
+        border: none;
+        gap: 0;
+    }
+
+    .nav-btn {
+        border-right: none;
+        border: 1px solid var(--near-black);
+        margin-bottom: -1px;
+    }
+
+    .card {
+        padding: var(--space-sm);
+    }
+
+    .subject-dashboard {
+        display: block;
+    }
+
+    .study-resource-list,
+    .flashcard-container {
+        flex-direction: column;
+    }
+
+    section {
+        padding: var(--space-md) 0;
+    }
+
+    .grid-checkerboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Tablet ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    main {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .navbar,
+    nav {
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .card {
+        padding: var(--space-md);
+    }
+
+    .subject-dashboard {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .study-resource-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* ── Desktop ── */
+@media (min-width: 1025px) {
+    body {
+        font-size: 17px;
+    }
+
+    main {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .navbar,
+    nav {
+        justify-content: center;
+        gap: var(--space-md);
+    }
+
+    .card {
+        padding: var(--space-md);
+    }
+
+    .subject-dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .study-resource-list {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #dashboard > h2 {
+        grid-column: 1 / -1;
+    }
+}

@@ -1,0 +1,28 @@
+<form id="resource-form">
+    <h2>Add Study Resource</h2>
+    <label for="resource-title">Title:</label>
+    <input type="text" id="resource-title" name="resource-title" required>
+
+    <label for="resource-type">Resource Type:</label>
+    <select id="resource-type" name="resource-type" required>
+        <option value="link">Link</option>
+        <option value="note">Note</option>
+        <option value="video">Video</option>
+        <option value="book">Book Reference</option>
+        <option value="custom">Custom</option>
+    </select>
+
+    <label for="resource-url">URL (if applicable):</label>
+    <input type="url" id="resource-url" name="resource-url">
+
+    <label for="resource-description">Description:</label>
+    <textarea id="resource-description" name="resource-description" rows="4" required></textarea>
+
+    <label for="resource-subject">Subject Association:</label>
+    <input type="text" id="resource-subject" name="resource-subject" required>
+
+    <label for="resource-tags">Optional Tags (comma-separated):</label>
+    <input type="text" id="resource-tags" name="resource-tags">
+
+    <button type="submit">Add Resource</button>
+</form>

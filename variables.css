@@ -1,0 +1,46 @@
+:root {
+    /* === Monochrome Tonal Palette === */
+    --black:          #111;
+    --near-black:     #1a1a1a;
+    --dark-gray:      #333;
+    --mid-gray:       #666;
+    --border-gray:    #d0d0d0;
+    --light-gray:     #e8e8e8;
+    --off-white:      #f0f0f0;
+    --surface:        #f8f8f8;
+    --background:     #fafafa;
+    --white:          #fff;
+
+    /* === Semantic Tokens === */
+    --primary-color:       var(--near-black);
+    --primary-color-hover: var(--dark-gray);
+    --text-color:          var(--near-black);
+    --text-muted:          var(--mid-gray);
+    --heading-color:       var(--black);
+    --bg-color:            var(--background);
+    --card-background:     var(--white);
+    --card-surface:        var(--surface);
+    --border-color:        var(--light-gray);
+    --divider-color:       var(--border-gray);
+    --hover-background:    var(--off-white);
+    --modal-background:    var(--white);
+    --invert-bg:           var(--near-black);
+    --invert-text:         var(--surface);
+
+    /* === Typography === */
+    --font-display:    'Playfair Display', Georgia, serif;
+    --font-body:       'Inter', sans-serif;
+    --font-size-base:  16px;
+    --font-size-large: 1.25rem;
+    --font-size-small: 0.875rem;
+    --font-size-xs:    0.75rem;
+    --line-height:     1.65;
+    --letter-spacing-label: 0.14em;
+
+    /* === Spacing === */
+    --space-xs:  8px;
+    --space-sm:  16px;
+    --space-md:  32px;
+    --space-lg:  64px;
+    --space-xl:  96px;
+}

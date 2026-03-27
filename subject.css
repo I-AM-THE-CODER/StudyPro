@@ -1,0 +1,92 @@
+/* === Subject Page — Monochrome Editorial === */
+
+.subject-container {
+    padding: var(--space-lg) var(--space-md);
+    margin: 0 auto;
+    max-width: 860px;
+}
+
+.subject-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.subject-title {
+    font-family: var(--font-display);
+    font-size: 2.6em;
+    font-weight: 800;
+    color: var(--heading-color);
+    letter-spacing: -0.02em;
+}
+
+.subject-description {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+    line-height: var(--line-height);
+}
+
+.exam-list,
+.study-materials,
+.study-resources {
+    margin-bottom: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.exam-list h2,
+.study-materials h2,
+.study-resources h2 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.exam-item,
+.material-item,
+.resource-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: var(--space-md);
+    margin-bottom: -1px;
+    transition: background-color 0.2s ease;
+}
+
+.exam-item:hover,
+.material-item:hover,
+.resource-item:hover {
+    background-color: var(--off-white);
+}
+
+.item-title {
+    font-family: var(--font-display);
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.item-description {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: var(--line-height);
+}
+
+.add-resource-button {
+    display: block;
+    margin: var(--space-md) auto;
+    padding: 12px 28px;
+}
+
+.progress-chart {
+    margin-top: var(--space-lg);
+    height: 300px;
+    width: 100%;
+}

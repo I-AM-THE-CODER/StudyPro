@@ -1,0 +1,20 @@
+<form id="exam-form">
+    <h2>Add/Edit Exam</h2>
+    <label for="exam-title">Exam Title:</label>
+    <input type="text" id="exam-title" name="exam-title" required>
+
+    <label for="exam-subject">Subject:</label>
+    <select id="exam-subject" name="exam-subject" required>
+        <option value="">Select a subject</option>
+        <!-- Options will be populated dynamically -->
+    </select>
+
+    <label for="exam-date">Date:</label>
+    <input type="date" id="exam-date" name="exam-date" required>
+
+    <label for="exam-description">Description:</label>
+    <textarea id="exam-description" name="exam-description" rows="4"></textarea>
+
+    <button type="submit">Save Exam</button>
+    <button type="button" id="cancel-button">Cancel</button>
+</form>
