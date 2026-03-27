@@ -9,11 +9,20 @@
         <option value="note">Note</option>
         <option value="video">Video</option>
         <option value="book">Book Reference</option>
+        <option value="file">File Upload</option>
         <option value="custom">Custom</option>
     </select>
 
-    <label for="resource-url">URL (if applicable):</label>
-    <input type="url" id="resource-url" name="resource-url">
+    <div id="resource-url-group">
+        <label for="resource-url">URL (if applicable):</label>
+        <input type="url" id="resource-url" name="resource-url">
+    </div>
+
+    <div id="resource-file-group" style="display:none;">
+        <label for="resource-file">Upload File:</label>
+        <input type="file" id="resource-file" name="resource-file" accept=".pdf,.doc,.docx,.txt,.md,.png,.jpg,.jpeg">
+        <small id="resource-file-status"></small>
+    </div>
 
     <label for="resource-description">Description:</label>
     <textarea id="resource-description" name="resource-description" rows="4" required></textarea>
@@ -25,4 +34,67 @@
     <input type="text" id="resource-tags" name="resource-tags">
 
     <button type="submit">Add Resource</button>
+    <p id="resource-form-message" style="display:none;"></p>
 </form>
+
+<script>
+(function () {
+    const typeSelect = document.getElementById('resource-type');
+    const urlGroup = document.getElementById('resource-url-group');
+    const fileGroup = document.getElementById('resource-file-group');
+
+    function toggleFileInput() {
+        const isFile = typeSelect.value === 'file';
+        urlGroup.style.display = isFile ? 'none' : '';
+        fileGroup.style.display = isFile ? '' : 'none';
+        document.getElementById('resource-file').required = isFile;
+        document.getElementById('resource-url').required = false;
+    }
+
+    typeSelect.addEventListener('change', toggleFileInput);
+
+    document.getElementById('resource-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const title = document.getElementById('resource-title').value.trim();
+        const type = typeSelect.value;
+        const description = document.getElementById('resource-description').value.trim();
+        const subject = document.getElementById('resource-subject').value.trim();
+        const tagsRaw = document.getElementById('resource-tags').value.trim();
+        const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+        const messageEl = document.getElementById('resource-form-message');
+
+        if (type === 'file') {
+            const fileInput = document.getElementById('resource-file');
+            const file = fileInput.files[0];
+            if (!file) {
+                messageEl.textContent = 'Please select a file to upload.';
+                messageEl.style.display = '';
+                return;
+            }
+            uploadMaterial(file, { title, description, subject, tags });
+            messageEl.textContent = 'File uploaded successfully!';
+            messageEl.style.display = '';
+            document.getElementById('resource-form').reset();
+            toggleFileInput();
+        } else {
+            const url = document.getElementById('resource-url').value.trim();
+            const resource = {
+                id: Date.now(),
+                title,
+                type,
+                url,
+                description,
+                subject,
+                tags,
+            };
+            if (typeof resourceManager !== 'undefined') {
+                resourceManager.addResource(resource);
+            }
+            messageEl.textContent = 'Resource added successfully!';
+            messageEl.style.display = '';
+            document.getElementById('resource-form').reset();
+            toggleFileInput();
+        }
+    });
+}());
+</script>

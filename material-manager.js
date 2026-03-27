@@ -1,20 +1,30 @@
 // material-manager.js
 
 // Function to upload study materials
-function uploadMaterial(file) {
+// meta (optional): { title, description, subject, tags }
+function uploadMaterial(file, meta) {
     const reader = new FileReader();
     reader.onload = function(event) {
         const material = {
             id: Date.now(),
+            title: (meta && meta.title) || file.name,
             content: event.target.result,
             type: file.type,
             name: file.name,
-            subject: '', // To be set when associating with a subject
-            tags: [] // To be set when tagging
+            description: (meta && meta.description) || '',
+            subject: (meta && meta.subject) || '',
+            tags: (meta && meta.tags) || []
         };
         saveMaterial(material);
     };
-    reader.readAsText(file); // Assuming text files; adjust for other types
+    // Use readAsDataURL for binary files (images, PDFs) so content is preserved;
+    // use readAsText only for plain text formats.
+    const textTypes = ['text/plain', 'text/markdown', 'application/json'];
+    if (textTypes.includes(file.type) || file.name.match(/\.(txt|md|json|csv)$/i)) {
+        reader.readAsText(file);
+    } else {
+        reader.readAsDataURL(file);
+    }
 }
 
 // Function to save material to localStorage
