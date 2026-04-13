@@ -32,10 +32,15 @@ const resourceManager = (() => {
         return resources.filter(resource => resource.subject_id === subjectId);
     };
 
+    const getResources = () => {
+        return [...resources];
+    };
+
     return {
         addResource,
         editResource,
         deleteResource,
         getResourcesBySubject,
+        getResources,
     };
 })();
